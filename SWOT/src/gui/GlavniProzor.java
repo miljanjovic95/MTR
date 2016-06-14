@@ -69,6 +69,7 @@ public class GlavniProzor extends JFrame {
 	private JScrollPane scrollPane_2;
 	private JScrollPane scrollPane_3;
 	private JButton btnSwot;
+	private JButton btnSacuvajUPdfu;
 
 	public GlavniProzor() {
 		addWindowListener(new WindowAdapter() {
@@ -303,6 +304,7 @@ public class GlavniProzor extends JFrame {
 			panel_1.add(getBtnSwot());
 			panel_1.add(getBtnKreirajStrategiju());
 			panel_1.add(getBtnUporediStrategije());
+			panel_1.add(getBtnSacuvajUPdfu());
 			// panel_1.add(getBtnDodaj());
 		}
 		return panel_1;
@@ -468,5 +470,17 @@ public class GlavniProzor extends JFrame {
 	public void srediTabeluPretnje(ArrayList<Swot> listaPretnje) {
 		ModelTabele mt = (ModelTabele) Pretnje.getModel();
 		mt.osveziTabelu(listaPretnje);
+	}
+	private JButton getBtnSacuvajUPdfu() {
+		if (btnSacuvajUPdfu == null) {
+			btnSacuvajUPdfu = new JButton("Sacuvaj u PDF-u");
+			btnSacuvajUPdfu.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					Kontroler.upisiUPDF();
+				}
+			});
+			btnSacuvajUPdfu.setPreferredSize(new Dimension(140, 20));
+		}
+		return btnSacuvajUPdfu;
 	}
 }

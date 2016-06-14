@@ -22,6 +22,8 @@ public class Strategija implements Serializable{
 	private List<SwotStrat> sanse;
 	private List<SwotStrat> pretnje;
 	
+	
+	
 	public Strategija() {
 		// TODO Auto-generated constructor stub
 	}
@@ -130,6 +132,35 @@ public class Strategija implements Serializable{
 	 * Metoda prolazi kroz liste snaga, slabosti, sansi, pretnji i sumira atraktivnosti. Suma ukupnih 
 	 * atraktivnosti predstavlja atraktivnost same strategije.
 	 */
+	
+	public String prikaziSanse(){
+		String s = "";
+		for (int i = 0; i < sanse.size(); i++) {
+			s+= sanse.get(i).getNaziv() + "-" + sanse.get(i).getPonder() + ";";
+		}
+		return s;
+	}
+	public String prikaziSlabosti(){
+		String s = "";
+		for (int i = 0; i < slabosti.size(); i++) {
+			s+= slabosti.get(i).getNaziv() + "-" + slabosti.get(i).getPonder() + ";";
+		}
+		return s;
+	}
+	public String prikaziPretnje(){
+		String s = "";
+		for (int i = 0; i < pretnje.size(); i++) {
+			s+= pretnje.get(i).getNaziv() + "-" + pretnje.get(i).getPonder() + ";";
+		}
+		return s;
+	}
+	public String prikaziSnage(){
+		String s = "";
+		for (int i = 0; i < snage.size(); i++) {
+			s+= snage.get(i).getNaziv() + "-" + snage.get(i).getPonder() + ";";
+		}
+		return s;
+	}
 	public void izracunajSumuUkupnihAtraktivnosti(){
 		for (SwotStrat swotStrat : pretnje) {
 			sumaUkupnihAtraktivnosti+= swotStrat.getUkupnaAtraktivnost();
